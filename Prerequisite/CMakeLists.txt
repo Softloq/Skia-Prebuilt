@@ -1,0 +1,14 @@
+cmake_minimum_required(VERSION 3.10)
+
+project(Skia-Prerequisite)
+
+# Download Recent Skia
+if(NOT EXISTS "${CMAKE_BINARY_DIR}/Downloads/ninja-$ENV{NINJA_VERSION}.zip")
+    file(DOWNLOAD "https://github.com/ninja-build/ninja/releases/download/v$ENV{NINJA_VERSION}/ninja-win.zip" "${CMAKE_BINARY_DIR}/Downloads/ninja-$ENV{NINJA_VERSION}.zip" SHOW_PROGRESS)
+endif()
+if(NOT EXISTS "${CMAKE_BINARY_DIR}/Downloads/ninja-$ENV{NINJA_VERSION}")
+    file(ARCHIVE_EXTRACT INPUT "${CMAKE_BINARY_DIR}/Downloads/ninja-$ENV{NINJA_VERSION}.zip" DESTINATION "${CMAKE_BINARY_DIR}/Downloads/ninja-$ENV{NINJA_VERSION}")
+endif()
+if(NOT EXISTS "${CMAKE_BINARY_DIR}/Downloads/skia")
+    execute_process(COMMAND git clone "https://skia.googlesource.com/skia" "${CMAKE_BINARY_DIR}/Downloads/skia")
+endif()

@@ -1,0 +1,5 @@
+file(MAKE_DIRECTORY "${Skia_DLL_OUTPUT_DIRECTORY}")
+file(GLOB_RECURSE Skia_DLLs "${CMAKE_CURRENT_LIST_DIR}/bin/**.dll")
+foreach(DLL ${Skia_DLLs})
+    execute_process(COMMAND "${CMAKE_COMMAND}" -E copy "${DLL}" "${Skia_DLL_OUTPUT_DIRECTORY}")
+endforeach()
