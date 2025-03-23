@@ -7,6 +7,7 @@ file(REMOVE_RECURSE "${CMAKE_BINARY_DIR}/skia")
 
 file(COPY "${CMAKE_BINARY_DIR}/../Prerequisite/Downloads/skia/include" DESTINATION "${CMAKE_BINARY_DIR}/skia/include")
 file(COPY "${CMAKE_BINARY_DIR}/../Prerequisite/Downloads/skia/modules" DESTINATION "${CMAKE_BINARY_DIR}/skia/include")
+file(COPY "${CMAKE_BINARY_DIR}/../Prerequisite/Downloads/skia/src" DESTINATION "${CMAKE_BINARY_DIR}/skia/include")
 file(GLOB_RECURSE skia_lib_SRC "${CMAKE_BINARY_DIR}/../Compile/skia/*.lib")
 foreach(SKIA_LIB ${skia_lib_SRC})
     get_filename_component(SKIA_OLD_LIB "${SKIA_LIB}" NAME)
