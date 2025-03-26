@@ -8,4 +8,10 @@ add_library(skia-all INTERFACE)
 add_library(skia::all ALIAS skia-all)
 target_include_directories(skia-all INTERFACE "${CMAKE_CURRENT_LIST_DIR}/include")
 target_link_directories(skia-all INTERFACE "${CMAKE_CURRENT_LIST_DIR}/lib")
-target_link_libraries(skia-all INTERFACE skcms skia skparagraph skresources skshaper skunicode_core skunicode_icu svg)
+target_link_libraries(skia-all INTERFACE
+    bentleyottmann
+    compression_utils_portable expat harfbuzz icu
+    libjpeg libjpeg12 libjpeg16 libpng libwebp_sse41 libwebp
+    pathkit
+    skcms skia skparagraph skresources skshaper skunicode_core skunicode_icu svg
+    wuffs zlib)
